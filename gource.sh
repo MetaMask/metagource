@@ -13,7 +13,7 @@ set -o pipefail
 outfile="gource.mp4"
 
 i=0
-for repo in $*; do
+for repo in ./repos/*; do
 	# 1. Generate a Gource custom log files for each repo. This can be facilitated by the --output-custom-log FILE option of Gource as of 0.29:
 	logfile="$(mktemp /tmp/gource.XXXXXX)"
 	gource --output-custom-log "${logfile}" ${repo}
@@ -36,7 +36,7 @@ rm ${logs[@]}
 
 time gource $combined_log \
 	--stop-at-end \
-  --seconds-per-day .025 \
+  --seconds-per-day .25 \
   --user-scale 1.5 \
   --viewport 1280x720 \
   --auto-skip-seconds .05 \
@@ -51,8 +51,8 @@ time gource $combined_log \
   --date-format "%b %d, %Y" \
   --user-friction 0.1 \
   --title "MetaMask Development History" \
-  --start-date "$START_DATE" \
-  --stop-date "$END_DATE" \
+  ${START_DATE+ --start-date "$START_DATE"} \
+  ${END_DATE+ --stop-date "$END_DATE"} \
   -o gource.ppm
 
   # --default-user-image "./images/icon-512.png" \
