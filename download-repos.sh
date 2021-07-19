@@ -18,6 +18,6 @@ concurrently \
   "git clone git@github.com:MetaMask/eth-trezor-keyring.git" \
   "git clone git@github.com:MetaMask/eth-ledger-bridge-keyring.git" \
   "git clone git@github.com:MetaMask/eth-sig-util.git" \
-  "git clone git@github.com:MetaMask/eth-json-rpc-middleware.git"
-  "git clone git@github.com:MetaMask/rpc-cap.git" \
+  "git clone git@github.com:MetaMask/eth-json-rpc-middleware.git" \
+  "git clone git@github.com:MetaMask/rpc-cap.git"
 cd ..
