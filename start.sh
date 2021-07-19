@@ -4,6 +4,9 @@ set -e
 set -x
 set -u
 
+# clear previous install
+rm -rf ./repos
+
 # install deps
 ./install-deps.sh
 
