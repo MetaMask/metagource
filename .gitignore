@@ -1,3 +1,6 @@
+repos
+repos.txt
+*.log
+
 *.ppm
 *.mp4
-repos

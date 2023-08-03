@@ -1,17 +1,18 @@
+#!/usr/bin/env bash
+
 # downloads all repos and creates a gource viz of all of them together
 
 set -e
-set -x
 set -u
 
-# clear previous install
-rm -rf ./repos
+# query github for repos
+./query-repos.sh
 
-# install deps
-./install-deps.sh
-
-# download repos
+# git clone or update repos
 ./download-repos.sh
 
+# build a single event log from all repos
+./build-log.sh
+
 # gource
-START_DATE="2021-01-01" END_DATE="2021-07-01" ./gource.sh
+./render-viz.sh
